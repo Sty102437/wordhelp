@@ -1,0 +1,19 @@
+﻿# Build artifacts
+scripts/dotnet/**/bin/
+scripts/dotnet/**/obj/
+*.user
+*.suo
+
+# Test outputs
+*.test.docx
+smoke-test-output/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Temp
+*.tmp
+*.log
+
+demo/
