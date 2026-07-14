@@ -1,4 +1,10 @@
-# Changelog
+﻿# Changelog
+
+## v1.0.1 (2026-07-14)
+
+- Add one-click install script (`scripts/install.ps1`) with auto-dependency resolution
+- Support `-Minimal` flag for python-docx-only deployment
+- Update README with quick install instructions
 
 ## v1.0.0 (2026-07-14)
 

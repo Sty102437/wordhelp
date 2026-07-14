@@ -16,7 +16,7 @@ triggers:
   - 用模板生成文档
   - 填表格
   - 写报告
-version: 1.0.0
+version: 1.0.1
 license: MIT
 ---
 
@@ -263,3 +263,4 @@ Run `scripts/smoke-test.ps1` to verify the environment.
 ## Copyright
 
 Engine routing logic and template analysis were partially inspired by WorkBuddy (Tencent/CodeBuddy) built-in skills. Underlying engines python-docx and minimax-docx retain their original MIT licenses. SKILL.md and scripts are original MIT.
+
