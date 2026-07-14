@@ -1,15 +1,23 @@
-﻿# wordhelp
+# wordhelp
 
-双重引擎的 Word 文档处理工具——轻活快刀 **python-docx**，重活重剑 **minimax-docx**。
+双重引擎的 Word 文档处理工具——轻活快刀 **python-docx**，重活重剑 **minimax-docx**。跨平台支持（Windows / macOS / Linux）。
 
 ## 一键安装
 
-```powershell
-powershell -ExecutionPolicy Bypass -File scripts\install.ps1
+```bash
+# 安装依赖
+pip install -r requirements.txt
+
+# 完整安装（检查环境 + 构建 minimax-docx）
+python scripts/install.py
+
+# 最小安装（仅 python-docx，跳过 minimax-docx）
+python scripts/install.py --minimal
 ```
 
-仅轻量引擎（跳过 minimax-docx）：
+**Windows 用户也可用 PowerShell：**
 ```powershell
+powershell -ExecutionPolicy Bypass -File scripts\install.ps1
 powershell -ExecutionPolicy Bypass -File scripts\install.ps1 -Minimal
 ```
 
@@ -35,10 +43,28 @@ flowchart TD
 
 | 组件 | 用途 | 许可 | 安装方式 |
 |------|------|------|----------|
-| [python-docx](https://github.com/python-openxml/python-docx) | 轻量引擎 | MIT | install.ps1 自动安装 |
-| minimax-docx | 重量引擎 | MIT | Codex/Trae skill 市场安装 |
+| [python-docx](https://github.com/python-openxml/python-docx) | 轻量引擎 | MIT | `pip install -r requirements.txt` |
+| [pywin32](https://github.com/mhammond/pywin32) | .doc 转换（仅 Windows） | BSD | requirements.txt 自动安装 |
+| minimax-docx | 重量引擎 | MIT | Codex/Trae/WorkBuddy skill 市场 |
 | .NET SDK 8.0+ | minimax-docx 运行时 | MIT | https://dotnet.microsoft.com |
-| WPS Office | .doc 转换 | - | 可选 |
+| WPS Office / Word | .doc 转换（Windows） | - | 可选 |
+| LibreOffice | .doc 转换（全平台） | MPL | 可选 |
+
+## 跨平台 .doc 转换
+
+转换器自动检测可用工具：
+
+| 平台 | 优先级 |
+|------|--------|
+| Windows | WPS COM → Word COM → LibreOffice CLI |
+| macOS | LibreOffice CLI |
+| Linux | LibreOffice CLI |
+
+## 环境变量（可选）
+
+| 变量 | 默认值 | 用途 |
+|------|--------|------|
+| `WORDHELP_MINIMAX_SKILL` | 自动检测 | minimax-docx skill 目录 |
 
 ## 版权声明
 

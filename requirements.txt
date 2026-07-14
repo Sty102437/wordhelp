@@ -1,0 +1,11 @@
+# wordhelp Python dependencies
+# Install: pip install -r requirements.txt
+#
+# Note: pywin32 is Windows-only (for WPS/Word COM .doc conversion)
+#       macOS/Linux users don't need it — LibreOffice CLI is used instead.
+
+python-docx>=0.8.11
+
+# Windows only (optional — for .doc conversion via WPS/Word COM)
+# Install separately on Windows: pip install pywin32
+pywin32>=306; sys_platform == "win32"

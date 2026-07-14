@@ -1,15 +1,23 @@
-﻿# wordhelp
+# wordhelp
 
-Dual-engine Word document processing — **python-docx** for quick edits, **minimax-docx** for professional output.
+Dual-engine Word document processing — **python-docx** for quick edits, **minimax-docx** for professional output. Cross-platform (Windows / macOS / Linux).
 
 ## Quick Install
 
-```powershell
-powershell -ExecutionPolicy Bypass -File scripts\install.ps1
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Full install (checks env + builds minimax-docx)
+python scripts/install.py
+
+# Minimal install (python-docx only, skip minimax-docx)
+python scripts/install.py --minimal
 ```
 
-Light engine only (skip minimax-docx):
+**Windows alternative:**
 ```powershell
+powershell -ExecutionPolicy Bypass -File scripts\install.ps1
 powershell -ExecutionPolicy Bypass -File scripts\install.ps1 -Minimal
 ```
 
@@ -35,10 +43,28 @@ flowchart TD
 
 | Component | Purpose | License | Install |
 |-----------|---------|---------|---------|
-| [python-docx](https://github.com/python-openxml/python-docx) | Light engine | MIT | Auto via install.ps1 |
-| minimax-docx | Heavy engine | MIT | Codex/Trae skill marketplace |
+| [python-docx](https://github.com/python-openxml/python-docx) | Light engine | MIT | `pip install -r requirements.txt` |
+| [pywin32](https://github.com/mhammond/pywin32) | .doc conversion (Windows only) | BSD | Auto via requirements.txt |
+| minimax-docx | Heavy engine | MIT | Codex/Trae/WorkBuddy skill marketplace |
 | .NET SDK 8.0+ | minimax-docx runtime | MIT | https://dotnet.microsoft.com |
-| WPS Office | .doc conversion | - | Optional |
+| WPS Office / Word | .doc conversion (Windows) | - | Optional |
+| LibreOffice | .doc conversion (all platforms) | MPL | Optional |
+
+## Cross-Platform .doc Conversion
+
+The converter auto-detects available tools:
+
+| Platform | Priority |
+|----------|----------|
+| Windows | WPS COM → Word COM → LibreOffice CLI |
+| macOS | LibreOffice CLI |
+| Linux | LibreOffice CLI |
+
+## Environment Variables (optional)
+
+| Variable | Default | Purpose |
+|----------|---------|---------|
+| `WORDHELP_MINIMAX_SKILL` | auto-detected | minimax-docx skill directory |
 
 ## Copyright
 

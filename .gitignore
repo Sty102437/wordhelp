@@ -6,7 +6,15 @@ scripts/dotnet/**/obj/
 
 # Test outputs
 *.test.docx
+*.fixed.docx
 smoke-test-output/
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+venv/
+.venv/
 
 # OS
 Thumbs.db
