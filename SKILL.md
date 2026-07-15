@@ -18,6 +18,7 @@ triggers:
   - 写报告
 version: 1.2.1
 license: MIT
+agent_created: true
 ---
 
 # wordhelp
