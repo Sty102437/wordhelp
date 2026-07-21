@@ -1,3 +1,4 @@
+https://github.com/Sty102437/wordhelp/blob/master/README.md
 # wordhelp
 
 Dual-engine Word document processing — **python-docx** for quick edits, **minimax-docx** for professional output. Cross-platform (Windows / macOS / Linux).
